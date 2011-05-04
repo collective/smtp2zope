@@ -12,6 +12,7 @@ setup(name='smtp2zope',
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
         "Programming Language :: Python",
+        "Topic :: Communications :: Email",
         ],
       keywords='',
       author='',
