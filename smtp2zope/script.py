@@ -138,9 +138,11 @@ def main():
 
     # Check for authentication-string (username:passwd) in URL
     # URL looks like: http://username:passwd@host/...
-    auth_mark = callURL.find('@')
-    if auth_mark != -1:
-        AUTHORIZATION = callURL[:auth_mark].split('://')[1]
+    # Avoid getting tripped up by for example http://example.org/@@poimail
+    auth_pattern = re.compile('://([^/:@]+:[^/:@]+)@')
+    match = auth_pattern.search(callURL)
+    if match:
+        AUTHORIZATION = match.groups()[0]
         callURL = callURL.replace(AUTHORIZATION + '@', '')
     else:
         AUTHORIZATION = ''
