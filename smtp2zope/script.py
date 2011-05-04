@@ -142,6 +142,8 @@ def main():
     if auth_mark != -1:
         AUTHORIZATION = callURL[:auth_mark].split('://')[1]
         callURL = callURL.replace(AUTHORIZATION + '@', '')
+    else:
+        AUTHORIZATION = ''
 
     try:
         req = urllib2.Request(callURL)
