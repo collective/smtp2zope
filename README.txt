@@ -66,3 +66,11 @@ this simple snippet is enough to create the ``bin/smtp2zope`` script::
   [script]
   recipe = zc.recipe.egg
   eggs = smtp2zope
+
+
+Credits
+-------
+
+- Original implementation: Maik Jablonski
+
+- Packaging: Maurits van Rees
