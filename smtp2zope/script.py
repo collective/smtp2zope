@@ -11,8 +11,9 @@
 
  MAXBYTES = optional: only forward mails < MAXBYTES to URL
 
- Please note: Output is logged to maillog per default on unices.
- See your maillog to debug problems with the setup.
+ Please note: Output is logged to maillog per default on unices.  See
+ your maillog (e.g. /var/log/mail.log) to debug problems with the
+ setup.
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
@@ -49,6 +50,8 @@ EXIT_TEMPFAIL = 75
 ##
 # Setup of loggers for error-messages
 try:
+    # When this works, output is expected to end up in something like
+    # /var/log/mail.log
     import syslog
     syslog.openlog('mailboxer')
     log_critical = lambda msg: syslog.syslog(
@@ -68,7 +71,7 @@ except:
     log_info = fake_logger
 
 
-def __main__():
+def main():
     ##
     # Main part of submitting an email to a http-server.
     # All requests will be serialized with locks.
@@ -79,6 +82,7 @@ def __main__():
         sys.exit(EXIT_USAGE)
 
     # optional MAXBYTES?
+    MAXBYTES = config.MAXBYTES
     if len(sys.argv) == 3:
         try:
             MAXBYTES = long(sys.argv[2])
@@ -157,5 +161,7 @@ def __main__():
             log_error('A problem (%s) occurred uploading email to URL %s.' % (
                 e, callURL))
             sys.exit(EXIT_TEMPFAIL)
+    else:
+        log_info("Successfully handled incoming mail.")
 
     # All locks will be removed when Python cleans up!
