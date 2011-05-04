@@ -23,11 +23,12 @@ maximum number of bytes as arguments::
 URL:
 
   call this URL with the email as a post-request.  Authentication can
-  be included in URL: http://username:password@yourHost/...
+  be included in URL: http://username:password@example.org/some-page
 
 MAXBYTES:
 
-  optional: only forward mails < MAXBYTES to URL
+  optional: only forward mails with a size of less than MAXBYTES to
+  the URL
 
 So a test run could look like this::
 
@@ -53,7 +54,7 @@ Debugging
 ---------
 
 Please note: output is logged to maillog per default on unices.  See
-your maillog (e.g. /var/log/mail.log) to debug problems with the setup.
+your maillog (e.g. ``/var/log/mail.log``) to debug problems with the setup.
 
 
 Buildout
