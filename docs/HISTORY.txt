@@ -4,7 +4,8 @@ Changelog
 1.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Moved to https://github.com/collective/smtp2zope
+  [maurits]
 
 
 1.1 (2011-05-05)
