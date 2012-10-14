@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2 (unreleased)
+1.2 (2012-10-14)
 ----------------
 
 - Moved to https://github.com/collective/smtp2zope
