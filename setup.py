@@ -1,19 +1,18 @@
 from setuptools import setup, find_packages
-import os
 
 version = '1.2dev'
 
 setup(name='smtp2zope',
       version=version,
       description="Read an email from stdin and forward it to a url",
-      long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=(open("README.txt").read().strip() + "\n\n" +
+                        open("CHANGES.rst").read().strip()),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
-        "Programming Language :: Python",
-        "Topic :: Communications :: Email",
-        ],
+          "Programming Language :: Python",
+          "Topic :: Communications :: Email",
+          ],
       keywords='',
       author='Maurits van Rees',
       author_email='maurits@vanrees.org',
